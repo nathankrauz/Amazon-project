@@ -2,14 +2,14 @@
 frappe.ui.form.on("Purchase Order", "refresh", function(frm) {
 	if (frm.doc.supplier == "Amazon.com") {
 		frm.add_custom_button("Generate McMaster List", function() {
-			var cart_list = "";
+			var cart_list = "https://www.amazon.com/gp/aws/cart/add.html?";
 			var missing_part_no = [];
 
 			$.each(frm.doc.items, function(index, row){
 				if (row.supplier_part_no === undefined) {
 					missing_part_no.push(row.item_code);
 				} else {
-					cart_list += row.supplier_part_no + ("https://www.amazon.com/gp/aws/cart/add.html?") + ("ASIN.") + ("1inc") + ("=") + row.supplier_part_no + ("&Quantity.") + ("1inc") + ("=") + row.qty + "\n";
+					cart_list += ("https://www.amazon.com/gp/aws/cart/add.html?") + ("ASIN.") + ("1inc") + ("=") + row.supplier_part_no + ("&Quantity.") + ("1inc") + ("=") + row.qty + "\n";
 				}
 			});
 
