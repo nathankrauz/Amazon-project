@@ -1,7 +1,7 @@
 // McMaster shopping cart list generation
 frappe.ui.form.on("Purchase Order", "refresh", function(frm) {
 	if (frm.doc.supplier == "Amazon.com") {
-		frm.add_custom_button("Generate McMaster List", function() {
+		frm.add_custom_button("Generate Amazon List", function() {
 			var cart_list = "https://www.amazon.com/gp/aws/cart/add.html?";
 			var missing_part_no = [];
 
